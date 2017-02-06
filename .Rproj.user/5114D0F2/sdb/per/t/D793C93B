@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "Package: wstudent\nType: Package\nTitle: Williams Students Graduating with Latin Honors Statistics\nVersion: 0.1.0\nAuthor: Panchanok Jumrustanasan\nMaintainer: Panchanok Jumrustanasan <pj4@williams.edu>\nDescription: The package compares the proportions of female and male Williams\n    students from class of 2003 to 2016 who graduated with Latin honors ('Cum Laude'\n    or above.) The information of graduating classes are stored within the package.\nLicense: MIT + file LICENSE\nEncoding: UTF-8\nLazyData: true\nImports:\n    stringr (>= 1.1.0),\n    gender,\n    stats,\n    graphics,\n    ggplot2,\n    dplyr\nSuggests:\n    testthat,\n    knitr,\n    rmarkdown\nRoxygenNote: 6.0.0\nVignetteBuilder: knitr\n",
+    "created" : 1486322448879.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3768273248",
+    "id" : "D793C93B",
+    "lastKnownWriteTime" : 1486322577,
+    "last_content_update" : 1486322577,
+    "path" : "~/Desktop/wstudent/DESCRIPTION",
+    "project_path" : "DESCRIPTION",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "dcf"
+}

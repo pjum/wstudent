@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#' @title Clean the Data Frame\n#' @description Filters out non-name elements, divides and combines columns to get \n#' a clean data frame. Gender column is also added.\n#' @usage getFirstName(input)\n#' @param input Unclean data frame from getHonorName()\n#' @return Clean version of /code{input} with \"firstname\", \"mid/lastname\", \"honor\", \n#' and \"gender\" column.\n#' @import stringr\n#' @export\ncleanData <- function(input){\n  \n  honor = as.character(input$honor[1])\n  input <- as.vector(input$dat_honor)\n\n  # test for filtering out non-name elements\n  test1 <- grepl(\"bachelor of\", input, ignore.case = TRUE)\n  test2 <- grepl(\"phi beta kappa\", input, ignore.case = TRUE)\n  test3 <- grepl(\"sigma xi\", input, ignore.case = TRUE)\n  test4 <- grepl(\"___\", input)\n  test5 <- grepl(\"degrees conferred\", input, ignore.case = TRUE)\n  test6 <- grepl(\"\\\\d\", input)\n  test7 <- !grepl(\"\\\\s\", input)\n\n  #check for illegal degree suffix\n  test8 <- sapply(input, isIllegalSuffix, USE.NAMES = FALSE)\n\n  #combine all tests into one big test\n  bigTest <- test1|test2|test3|test4|test5|test6|test7|test8\n\n  #Keep all but non-name elements\n  output <- input[!bigTest]\n\n  #Manual manipulation for some text files\n  clean <- which(grepl(\"Statistical\", output, ignore.case = TRUE))\n  if (!identical(clean, integer(0))) output <- output[-clean]\n\n  #Clean data\n  allNames <- stringr::str_split(output, \",\", simplify = TRUE)\n  allNames <- allNames[,-ncol(allNames)]\n  allNames <- stringr::str_split_fixed(allNames, \" \", 2)\n  allNames[,1] <- stringr::str_replace_all(allNames[,1], \"[^[:alnum:]]\", \"\")\n  \n  #Determine genders\n  g <- matrix(nrow = nrow(allNames), ncol = 1)\n  for(i in 1:nrow(g)){\n    if (!identical(gender::gender(allNames[i,1]), gender::gender(\"ff\"))){\n      g[i,1] <- gender::gender(allNames[i,1])$gender\n    }\n  }\n  \n  allNames <- data.frame(allNames, honor, g)\n  colnames(allNames) <- c(\"firstname\", \"mid/lastname\", \"honor\", \"gender\")\n  allNames\n}\n\n#' @title Check Suffix in Line\n#' @description  Check if the line contains any suffix listed in the text\n#' file 'suffix.txt'\n#' @param x a text line\n#' @return returns TRUE if the line contains any suffix\n#'   listed in the text file 'suffix.txt'\n#' @usage checkSuffix(x)\n#' @import stringr\n#' @keywords internal\ncheckSuffix <- function(x){\n  match <- FALSE\n  file_path <- system.file(\"extdata\", \"suffix.txt\", package = \"wstudent\")\n  majorSuffix <- readLines(file_path, ok = TRUE, warn = FALSE)\n  for (i in 1:length(majorSuffix)){\n    if (grepl(majorSuffix[i], x, ignore.case = TRUE)) {\n      match <- TRUE\n    }\n  }\n  match\n}\n\n#' @title Check Illegal Suffix in Line\n#' @description Check if a line illegally contains any suffix: containing\n#'   a suffix but not ',' within the same line.\n#' @usage isIllegalSuffix(x)\n#' @param x text line\n#' @return returns TRUE if the line illegally contains a suffix\n#' @import stringr\n#' @keywords internal\nisIllegalSuffix <- function(x){\n  illegal <- FALSE\n  if((!grepl(\",\", x)) & checkSuffix(x)){\n    illegal <- TRUE\n  }\n  illegal\n}\n",
+    "created" : 1486321432059.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3788682878",
+    "id" : "BBA52BE0",
+    "lastKnownWriteTime" : 1486321490,
+    "last_content_update" : 1486321490592,
+    "path" : "~/Desktop/wstudent/R/cleanData.R",
+    "project_path" : "R/cleanData.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

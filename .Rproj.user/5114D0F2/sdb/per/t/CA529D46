@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "---\nauthor:\n  - name: FirstName LastName\n    affiliation: University/Company\n    address: >\n      First line\n      Second line\n    email: name@company.com\n    url: http://rstudio.com\n  - name: Second Author\n    affiliation: Affiliation\ntitle:\n  formatted: \"A Capitalized Title: Something about a Package \\\\pkg{foo}\"\n  # If you use tex in the formatted title, also supply version without\n  plain:     \"A Capitalized Title: Something about a Package foo\"\n  # For running headers, if needed\n  short:     \"\\\\pkg{foo}: A Capitalized Title\"\nabstract: >\n  The abstract of the article.\nkeywords:\n  # at least one keyword must be supplied\n  formatted: [keywords, not capitalized, \"\\\\proglang{Java}\"]\n  plain:     [keywords, not capitalized, Java]\npreamble: >\n  \\usepackage{amsmath}\noutput: rticles::jss_article\n---\n\n# Introduction\n\nThis template demonstrates some of the basic latex you'll need to know to create a JSS article.\n\n## Code formatting\n\nDon't use markdown, instead use the more precise latex commands:\n\n* \\proglang{Java}\n* \\pkg{plyr}\n* \\code{print(\"abc\")}\n\n# R code\n\nCan be inserted in regular R markdown blocks.\n\n```{r}\nx <- 1:10\nx\n```\n",
+    "created" : 1486324581341.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1210071489",
+    "id" : "CA529D46",
+    "lastKnownWriteTime" : 1486324587,
+    "last_content_update" : 1486324587570,
+    "path" : "~/Desktop/wstudent/Untitled/Untitled.Rmd",
+    "project_path" : "Untitled/Untitled.Rmd",
+    "properties" : {
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

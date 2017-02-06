@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "merge(table(wstudent.nine[,3:4], \n            dnn = list(\"honor\", \"class of 2009 gender\"))[-4,], \n      total = colSums(table(wstudent.nine[,3:4], \n                            dnn = list(\"honor\", \"class of 2009 gender\"))[-4,]))\n\n\n\nstats::addmargins(table(wstudent.nine[,3:4], \n                        dnn = list(\"honor\", \"class of 2009 gender\"))[-4,], 1)\n\nlist(stats::addmargins(table(wstudent.three[,3:4], \n                             dnn = list(\"honor\", \"class of 2003 gender\"))[-4,], 1),\n     stats::addmargins(table(wstudent.four[,3:4], \n                             dnn = list(\"honor\", \"class of 2004 gender\"))[-4,], 1),\n     stats::addmargins(table(wstudent.five[,3:4], \n                             dnn = list(\"honor\", \"class of 2005 gender\"))[-4,], 1),\n     stats::addmargins(table(wstudent.six[,3:4], \n                             dnn = list(\"honor\", \"class of 2006 gender\"))[-4,], 1),\n     stats::addmargins(table(wstudent.seven[,3:4], \n                             dnn = list(\"honor\", \"class of 2007 gender\"))[-4,], 1),\n     stats::addmargins(table(wstudent.eight[,3:4], \n                             dnn = list(\"honor\", \"class of 2008 gender\"))[-4,], 1),\n     stats::addmargins(table(wstudent.nine[,3:4], \n                             dnn = list(\"honor\", \"class of 2009 gender\"))[-4,], 1),\n     stats::addmargins(table(wstudent.ten[,3:4], \n                             dnn = list(\"honor\", \"class of 2010 gender\"))[-4,], 1),\n     stats::addmargins(table(wstudent.eleven[,3:4], \n                             dnn = list(\"honor\", \"class of 2011 gender\"))[-4,], 1),\n     stats::addmargins(table(wstudent.twelve[,3:4], \n                             dnn = list(\"honor\", \"class of 2012 gender\"))[-4,], 1),\n     stats::addmargins(table(wstudent.thirteen[,3:4], \n                             dnn = list(\"honor\", \"class of 2013 gender\"))[-4,], 1),\n     stats::addmargins(table(wstudent.fourteen[,3:4], \n                             dnn = list(\"honor\", \"class of 2014 gender\"))[-4,], 1),\n     stats::addmargins(table(wstudent.fifteen[,3:4], \n                             dnn = list(\"honor\", \"class of 2015 gender\"))[-4,], 1),\n     stats::addmargins(table(wstudent.sixteen[,3:4], \n                             dnn = list(\"honor\", \"class of 2016 gender\"))[-4,], 1))\n",
+    "created" : 1486312937964.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "3370760630",
+    "id" : "585CB50B",
+    "lastKnownWriteTime" : 3419473789575321445,
+    "last_content_update" : 1486314484813,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

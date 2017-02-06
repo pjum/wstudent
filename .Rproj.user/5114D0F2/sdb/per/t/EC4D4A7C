@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: Capitalized Title Here\nauthor:\n  - name: Author One\n    affiliation: Affiliation\n    address:\n    - line 1\n    - line 2\n    email:  author1@work\n  - name: Author Two\n    affiliation: Affiliation\n    address:\n    - line 1\n    - line 2\n    email:  author2@work\nabstract: >\n  An abstract of less than 150 words.\npreamble: >\n  % Any extra latex you need in the preamble\noutput: rticles::rjournal_article\n---\n\n## Introduction\n\nIntroductory section which may include references in parentheses\n\\citep{R}, or cite a reference such as \\citet{R} in the text.\n\n## Section title in sentence case\n\nThis section may contain a figure such as Figure \\ref{figure:rlogo}.\n\n\\begin{figure}[htbp]\n  \\centering\n  \\includegraphics{Rlogo}\n  \\caption{The logo of R.}\n  \\label{figure:rlogo}\n\\end{figure}\n\n## Another section\n\nThere will likely be several sections, perhaps including code snippets, such as:\n\n```{r}\nx <- 1:10\nx\n```\n\n## Summary\n\nThis file is only a basic article template. For full details of _The R Journal_ style and information on how to prepare your article for submission, see the [Instructions for Authors](https://journal.r-project.org/share/author-guide.pdf).\n\\bibliography{RJreferences}\n",
+    "created" : 1486323724662.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3886427865",
+    "id" : "EC4D4A7C",
+    "lastKnownWriteTime" : 1486324654,
+    "last_content_update" : 1486324654640,
+    "path" : "~/Desktop/wstudent/vignettes/vignettes.Rmd",
+    "project_path" : "vignettes/vignettes.Rmd",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

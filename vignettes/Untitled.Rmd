@@ -1,0 +1,138 @@
+---
+title: Comparision between Female and Male Proportions of Williams Students Who Graduated with Latin Honors
+author:
+  - name: Panchanok Jumrustanasan '19
+    affiliation: Economics and Computer Science
+    address:
+    - Williams College
+    - Williamstown, MA
+    email:  pj4@williams.edu
+abstract: >
+  The package compares the proportions of female and male students who graduated with Latin honors from class of 2003 to 2016 using \pkg{gender} package.
+preamble: >
+  % Any extra latex you need in the preamble
+output: rticles::rjournal_article
+---
+
+```{r "setup", include=FALSE}
+library("knitr")
+opts_knit$set(root.dir = "../")
+library("wstudent")
+data(wstudent.three)
+```
+
+## Introduction
+
+The gender distribution of first-year students are approximately equal between male and female students(49 percent male and 51 percent female students for the class of 2019.) Even though the slightl difference in numbers indicates some sort of irrelavance in gender and acceptance, the impact of Williams College settings on adacemic standing of students of each gender is worth studying. 
+
+The paper takes Latin honors students received as an indicator of academic achievement of students. It focuses on the proportions of students of each gender from each class year from 2003 to 2016 who graduated with Latin honors. The gender is determined using \pkg{gender} package\citep{genderpkg}.
+
+
+
+# Proportions
+In this paper, \dfn{proportion} refers to the proportion of Williams students of each gender who graduated with Latin honors. The number is obtained by dividing the number of students who graduated with Latin honors by the total number of students of that gender in the same class year. The proportions of female and male students are compared in this fashion to prevent the interferance from the fact that students of one gender are more likely to receive Latin honors than the other if there are more students of that gender.
+
+
+
+# Raw Data
+
+The information of Williams College graduating classes were from Williams College Bulletin pdf files available on the Office of the Registrar of Willaims College website \citep{Registrar}. The files were converted into text files using online file converter and manually modified. At this point, the files contain only the information of graduating students, but still need more manipulation from the functions in the package.
+
+
+#getHonorName()
+
+\code{getHonorName()} extracts information from the section indicated by Latin honors. It takes 2 arguments: 'filename' and 'honor.' 'filename' can be the file name of the graduating class information in the package or a dataset in the package. File names start from 't0203.txt' for the class of 2003 to 't1516.txt' for the class of 2016. \samp{honor} tells the section that information should be taken from. They can be \samp{all}, \samp{summa}, \samp{magna}, \samp{cum}, and \samp{none}.
+
+The returned value is a dataframe with one column of Latin honor and one column of other information that will be cleaned later.
+
+```{r getHonorName}
+honor.data <- getHonorName("t0203.txt", "all")
+honor.data[1:15,]
+```
+
+
+
+#cleanData()
+
+The dataframe from \code{getHonorName()} might contain some elements such as section headers, non-names, and some special marks. Working with internal helper functions, \code{cleanData()} detects and gets rid off these elements, leaving only vital elements that represent students.
+
+It takes a dataframe from \code{getHonorName()} as its only argument. The function separates first names from middle and last names. The gender column is also added to the dataframe.
+
+```{r cleanData}
+clean.data <- cleanData(honor.data[1:15,])
+clean.data
+```
+
+However, due to the limitation of \pkg{gender} package, the gender of some names, especially non-English names, are NA.
+
+
+
+#ratio()
+
+\code{ratio()} takes a dataset from \samp{wstudent.xxx} series (see more details in \samp{Datasets} section below) in the package as its only argument. It returns a table of the proportions of that input.
+
+```{r ratio}
+ratio(wstudent.three)
+```
+
+
+
+#Datasets
+The package provides ready-to-use datasets; they are datasets in \samp{wstudent.xxxx} series and \samp{all.ratio}. 
+
+\samp{wstudent.xxxx}s are the clean manipulated version of text files that are saved as datasets within the package. A dataset in this series contains all students in the class year, their genders, and Latin honors they received. To use the datasets, call \code{data()} on their names from the list: \samp{wstudent.three}, \samp{wstudent.four}, \samp{wstudent.five}, ..., \samp{wstudent.sixteen}. For example, to get the dataset for class of 2003,
+
+```{r dataset.student}
+data(wstudent.three)
+wstudent.three[1:15,]
+```
+
+\samp{all.ratio} dataset is a table of the proportions of each gender from the class of 2003 to 2016. To get the dataset,
+
+```{r all.ratio}
+data(all.ratio)
+all.ratio
+```
+
+
+
+#stat_rep()
+All information can be presented in five statistical prepresentations using stat_rep(). Options are a summary table for each class year, the proportions of each gender over time, a summary of the proportions, a box plot of the proportions, and a hypothesis test^[one sided, 95% confidence interval with alpha of 0.05].
+
+```{r annual}
+stat_rep("annual")
+```
+
+```{r timeplot}
+stat_rep("timeplot")
+```
+
+```{r prop.sum}
+stat_rep("prop.sum")
+```
+
+```{r boxplot}
+stat_rep("boxplot")
+```
+
+```{r t.testing}
+stat_rep("t.testing")
+```
+
+
+
+#Analysis
+
+Exploiting the ready-to-use datasets in the package, the annual report of students of each gender who graduated with Latin honors are provided. Nevertheless, these figures take the total number of students for granted, causing a bias mentioned in the introduction section. Therefore, it is more reasonable to study the proportions of each gender than the absolute numbers.
+
+The dataset \samp{all.ratio} displays the proportions of students of each gender who graduated with Latin honors from the class of 2003 to 2016. Even though the total number of students of each gender are taken into account, the figures still implies difference gaps of gender proportions. The time plot allows a brief proportion comparison. Only in 2004 and 2014 were the male proportions above the female proportion. Essential statistical numbers are shown in five-summary table. All figures in female column are higher than the figures in the same row in male column. The difference is more obvious in the box plot when the whole box of female students is located higher than of male students. Despite these menifest observations, the difference gaps need to be proved whether it is significant. 
+
+A hypothesis test is conducted with the null hypothesis that the female proportion is not greater than the male proportion. With the p-value of 0.0001867, the result suggests the rejection of the null hypothesis. That is, the female proportion is significantly greater than the male proportion.
+ 
+
+
+#Conclusion
+
+It can be concluded that female Williams students have been graduating with higher GPA (receving Latin honors) than male students have for over 10 years. The result suggests that the environments Williams College provides are more in favor of female students's achievement, in terms of GPA, than they are to male students.
+
+\bibliography{RJreferences}

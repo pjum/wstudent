@@ -1,0 +1,25 @@
+Package: wstudent
+Type: Package
+Title: Williams Students Graduating with Latin Honors Statistics
+Version: 0.2.0
+Author: Panchanok Jumrustanasan
+Maintainer: Panchanok Jumrustanasan <pj4@williams.edu>
+Description: The package compares the proportions of female and male Williams
+    students from class of 2003 to 2016 who graduated with Latin honors ('Cum Laude'
+    or above.) The information of graduating classes are stored within the package.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    stringr (>= 1.1.0),
+    gender,
+    stats,
+    graphics,
+    ggplot2,
+    dplyr
+Suggests:
+    testthat,
+    knitr,
+    rmarkdown
+RoxygenNote: 6.0.0
+VignetteBuilder: knitr

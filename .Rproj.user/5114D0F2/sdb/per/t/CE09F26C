@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#' @title Get Proportional Table of Male and Female Students\n#' @description  Get a table of proportions of female and male students who \n#' graduated with Latin honors in that class year\n#' @usage ratio(input)\n#' @param input Clean data frame\n#' @return Proportional table of female and male students for that input\n#' @import gender\n#' @export\nratio <- function(input){\n  \n  table.all <- table(input$gender)\n  table.honor <- table(input[input$honor != \"none\",]$gender)\n  \n  table.honor/table.all\n}\n\n\n",
+    "created" : 1486322345408.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2709665957",
+    "id" : "CE09F26C",
+    "lastKnownWriteTime" : 1486307814,
+    "last_content_update" : 1486307814,
+    "path" : "~/Desktop/wstudent/R/ratio.R",
+    "project_path" : "R/ratio.R",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
