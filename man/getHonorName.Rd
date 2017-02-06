@@ -21,7 +21,7 @@ Pick 'none' for graduates without Latin honors.}
 Data frame of elements with indicated Latin honor.
 }
 \description{
-This function works with .txt file inthe package. It picks the 
+This function works with .txt file in the package. It picks the 
 elements that are marked with indicated Latin honors.
 }
 \details{

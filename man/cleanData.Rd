@@ -10,7 +10,7 @@ cleanData(input)
 \item{input}{Unclean data frame from getHonorName()}
 }
 \value{
-Clean version of /code{input} with "firstname", "mid/lastname", "honor", 
+Clean version of input with "firstname", "mid/lastname", "honor", 
 and "gender" column.
 }
 \description{

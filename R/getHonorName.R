@@ -1,5 +1,5 @@
 #' @title Get Section Indicated by Latin Honors
-#' @description This function works with .txt file inthe package. It picks the 
+#' @description This function works with .txt file in the package. It picks the 
 #' elements that are marked with indicated Latin honors. 
 #' @usage getHonorName(file_name, honor)
 #' @param file_name Name of a text file in inst/extdata or a datasets in a package. 

@@ -7,7 +7,7 @@
 ratio(input)
 }
 \arguments{
-\item{input}{Clean data frame}
+\item{input}{Clean data frame with a gender column. Recommend using datasets.}
 }
 \value{
 Proportional table of female and male students for that input

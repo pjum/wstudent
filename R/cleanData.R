@@ -3,7 +3,7 @@
 #' a clean data frame. Gender column is also added.
 #' @usage cleanData(input)
 #' @param input Unclean data frame from getHonorName()
-#' @return Clean version of /code{input} with "firstname", "mid/lastname", "honor", 
+#' @return Clean version of input with "firstname", "mid/lastname", "honor", 
 #' and "gender" column.
 #' @import stringr
 #' @export

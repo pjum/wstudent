@@ -2,7 +2,7 @@
 #' @description  Get a table of proportions of female and male students who 
 #' graduated with Latin honors in that class year
 #' @usage ratio(input)
-#' @param input Clean data frame
+#' @param input Clean data frame with a gender column. Recommend using datasets.
 #' @return Proportional table of female and male students for that input
 #' @import gender
 #' @export
